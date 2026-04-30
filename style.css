@@ -3,47 +3,6 @@ body{
   font-family:sans-serif;
   background:#0f1220;
   color:white;
-  text-align:center;
-}
-
-#welcome{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-#app{display:none;padding:20px}
-
-input,select{
-  padding:10px;
-  margin:8px;
-  border-radius:8px;
-  border:none;
-}
-
-button{
-  padding:10px 15px;
-  margin:10px;
-  border:none;
-  border-radius:10px;
-  background:#2f89ff;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-button:hover{
-  transform:scale(1.05);
-}
-
-.card{
-  background:#14182b;
-  margin:15px;
-  padding:15px;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
 .light{
@@ -51,6 +10,40 @@ button:hover{
   color:black;
 }
 
-.light .card{
-  background:#f1f1f1;
+.app-header{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+}
+
+.tabs{
+  display:flex;
+  gap:10px;
+  padding:10px;
+}
+
+.tab{
+  padding:10px;
+  cursor:pointer;
+}
+
+.page{display:none;padding:20px}
+.page.active{display:block}
+
+#workoutGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.workout-card{
+  background:#14182b;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.workout-card:hover{
+  transform:scale(1.05);
 }
