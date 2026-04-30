@@ -3,77 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FitFlex AI</title>
+<title>FitFlex</title>
 
 <link rel="stylesheet" href="style.css">
-
-<!-- Chart -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+#mainApp{display:none;}
+</style>
 </head>
 
 <body>
 
-<!-- WELCOME -->
-<div id="welcome">
-  <h1>💪 Welcome to FitFlex AI</h1>
-  <input id="username" placeholder="Enter your name">
-  <button onclick="enterApp()">Start</button>
+<!-- SIMPLE START SCREEN -->
+<div id="loginPage" style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;">
+  <h1>💪 Welcome to FitFlex</h1>
+  <button onclick="startApp()" class="btn">Start</button>
 </div>
 
 <!-- MAIN APP -->
-<div id="app">
+<div id="mainApp">
 
-<header>
-  <h2>FitFlex AI</h2>
+<header class="app-header">
+  <h2>FitFlex</h2>
   <button id="themeToggle">🌗</button>
 </header>
 
-<section class="card">
+<nav class="tabs">
+  <button class="tab active" data-target="#dashboard">Dashboard</button>
+  <button class="tab" data-target="#workouts">Workouts</button>
+  <button class="tab" data-target="#progress">Progress</button>
+  <button class="tab" data-target="#planner">BMI</button>
+</nav>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
   <h3>Stats</h3>
-  <p>Workouts: <span id="workouts">0</span></p>
-  <p>Calories: <span id="calories">0</span></p>
+  <p>Workouts: <span id="statWorkouts">0</span></p>
+  <p>Calories: <span id="statCalories">0</span></p>
 </section>
 
-<section class="card">
-  <h3>BMI</h3>
+<!-- WORKOUTS -->
+<section id="workouts" class="page">
+  <div id="workoutGrid"></div>
+</section>
+
+<!-- PROGRESS -->
+<section id="progress" class="page">
+  <canvas id="weekChart"></canvas>
+  <ul id="historyList"></ul>
+</section>
+
+<!-- BMI -->
+<section id="planner" class="page">
   <input id="height" placeholder="Height cm">
   <input id="weight" placeholder="Weight kg">
   <button id="calcBMI">Calculate</button>
   <p id="bmiResult"></p>
 </section>
 
-<section class="card">
-  <h3>Set Goal</h3>
-  <select id="goal">
-    <option value="fit">Stay Fit</option>
-    <option value="loss">Fat Loss</option>
-    <option value="gain">Muscle Gain</option>
-  </select>
-  <button onclick="generateAIWorkout()">Generate Plan</button>
-  <ul id="aiPlan"></ul>
-</section>
-
-<section class="card">
-  <h3>Workout Timer</h3>
-  <h1 id="timer">00:30</h1>
-  <button onclick="startTimer()">Start</button>
-  <button onclick="pauseTimer()">Pause</button>
-</section>
-
-<section class="card">
-  <h3>Weekly Progress</h3>
-  <canvas id="chart"></canvas>
-</section>
-
-<section class="card">
-  <h3>History</h3>
-  <ul id="history"></ul>
-</section>
-
-<button id="exportData">Download JSON</button>
-
 </div>
 
 <script src="app.js"></script>
+
+<script>
+function startApp(){
+  document.getElementById("loginPage").style.display="none";
+  document.getElementById("mainApp").style.display="block";
+}
+</script>
+
 </body>
 </html>
