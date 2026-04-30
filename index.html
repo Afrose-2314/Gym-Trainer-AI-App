@@ -6,6 +6,8 @@
 <title>FitFlex</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
@@ -15,8 +17,8 @@
 
 <body>
 
-<!-- SIMPLE START SCREEN -->
-<div id="loginPage" style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;">
+<!-- START SCREEN -->
+<div id="loginPage" class="center">
   <h1>💪 Welcome to FitFlex</h1>
   <button onclick="startApp()" class="btn">Start</button>
 </div>
@@ -26,9 +28,10 @@
 
 <header class="app-header">
   <h2>FitFlex</h2>
-  <button id="themeToggle">🌗</button>
+  <button id="themeToggle" class="btn">🌗</button>
 </header>
 
+<!-- TABS -->
 <nav class="tabs">
   <button class="tab active" data-target="#dashboard">Dashboard</button>
   <button class="tab" data-target="#workouts">Workouts</button>
@@ -36,31 +39,50 @@
   <button class="tab" data-target="#planner">BMI</button>
 </nav>
 
+<main>
+
 <!-- DASHBOARD -->
 <section id="dashboard" class="page active">
-  <h3>Stats</h3>
-  <p>Workouts: <span id="statWorkouts">0</span></p>
-  <p>Calories: <span id="statCalories">0</span></p>
+  <div class="card">
+    <h3>Stats</h3>
+    <p>Workouts: <span id="statWorkouts">0</span></p>
+    <p>Calories: <span id="statCalories">0</span></p>
+  </div>
 </section>
 
 <!-- WORKOUTS -->
 <section id="workouts" class="page">
-  <div id="workoutGrid"></div>
+  <div class="card">
+    <h3>Workout Library</h3>
+    <div id="workoutGrid" class="grid"></div>
+  </div>
 </section>
 
 <!-- PROGRESS -->
 <section id="progress" class="page">
-  <canvas id="weekChart"></canvas>
-  <ul id="historyList"></ul>
+  <div class="card">
+    <h3>Weekly Progress</h3>
+    <canvas id="weekChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>History</h3>
+    <ul id="historyList"></ul>
+  </div>
 </section>
 
 <!-- BMI -->
 <section id="planner" class="page">
-  <input id="height" placeholder="Height cm">
-  <input id="weight" placeholder="Weight kg">
-  <button id="calcBMI">Calculate</button>
-  <p id="bmiResult"></p>
+  <div class="card">
+    <h3>Calculate BMI</h3>
+    <input id="height" type="number" placeholder="Height (cm)">
+    <input id="weight" type="number" placeholder="Weight (kg)">
+    <button id="calcBMI" class="btn">Calculate</button>
+    <p id="bmiResult"></p>
+  </div>
 </section>
+
+</main>
 
 </div>
 
