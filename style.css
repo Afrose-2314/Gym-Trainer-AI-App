@@ -5,15 +5,18 @@ body{
   color:white;
 }
 
-.light{
-  background:white;
-  color:black;
+.center{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
 .app-header{
   display:flex;
   justify-content:space-between;
-  padding:10px;
+  padding:15px;
 }
 
 .tabs{
@@ -25,25 +28,49 @@ body{
 .tab{
   padding:10px;
   cursor:pointer;
+  background:#1a1f3a;
+  border:none;
+  color:white;
+  border-radius:6px;
+}
+
+.tab.active{
+  background:#2f89ff;
 }
 
 .page{display:none;padding:20px}
 .page.active{display:block}
 
-#workoutGrid{
+.card{
+  background:#14182b;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:10px;
 }
 
 .workout-card{
-  background:#14182b;
+  background:#1a2040;
   padding:10px;
-  border-radius:10px;
+  border-radius:8px;
   cursor:pointer;
-  transition:0.3s;
+  text-align:center;
 }
 
 .workout-card:hover{
-  transform:scale(1.05);
+  background:#2f89ff;
+}
+
+.btn{
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:#2f89ff;
+  color:white;
+  cursor:pointer;
 }
